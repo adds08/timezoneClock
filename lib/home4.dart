@@ -1,13 +1,14 @@
-import 'package:LSTime/features/dailyreport/jha/incident.dart';
-import 'package:LSTime/features/dailyreport/jha/incident.provider.dart';
-import 'package:LSTime/features/dailyreport/jha/selected.incident.provider.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:LSTime/features/dailyreport/incident/incident.dart';
+import 'package:LSTime/features/dailyreport/incident/incident.provider.dart';
+import 'package:LSTime/features/dailyreport/incident/selected.incident.provider.dart';
+import 'package:LSTime/features/dailyreport/jha/presentation/jhaList.screen.dart';
+import 'package:LSTime/features/dailyreport/jha/presentation/jhaform.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'osha.dart';
 
-List<List<String>> jhaList = [];
+List<List<String>> incidentList = [];
 
 class UrbanHomeScreen4 extends StatefulWidget {
   const UrbanHomeScreen4({super.key});
@@ -77,104 +78,12 @@ class _UrbanHomeScreen4State extends State<UrbanHomeScreen4> {
             // This is the main content.
 
             if (_selectedIndex == 0) ...[
-              const Expanded(child: DashboardScreen()),
+              // const Expanded(child: DashboardScreen()),
+              const Expanded(child: JHAFormScreen()),
             ] else if (_selectedIndex == 1) ...[
               const Expanded(child: IncidentListWidget()),
             ] else ...[
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text('selectedIndex: $_selectedIndex'),
-                    const SizedBox(height: 20),
-                    Text('Label type: ${labelType.name}'),
-                    const SizedBox(height: 10),
-                    OverflowBar(
-                      spacing: 10.0,
-                      children: <Widget>[
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              labelType = NavigationRailLabelType.none;
-                            });
-                          },
-                          child: const Text('None'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              labelType = NavigationRailLabelType.selected;
-                            });
-                          },
-                          child: const Text('Selected'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              labelType = NavigationRailLabelType.all;
-                            });
-                          },
-                          child: const Text('All'),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Text('Group alignment: $groupAligment'),
-                    const SizedBox(height: 10),
-                    OverflowBar(
-                      spacing: 10.0,
-                      children: <Widget>[
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              groupAligment = -1.0;
-                            });
-                          },
-                          child: const Text('Top'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              groupAligment = 0.0;
-                            });
-                          },
-                          child: const Text('Center'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              groupAligment = 1.0;
-                            });
-                          },
-                          child: const Text('Bottom'),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    OverflowBar(
-                      spacing: 10.0,
-                      children: <Widget>[
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              showLeading = !showLeading;
-                            });
-                          },
-                          child: Text(showLeading ? 'Hide Leading' : 'Show Leading'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              showTrailing = !showTrailing;
-                            });
-                          },
-                          child: Text(showTrailing ? 'Hide Trailing' : 'Show Trailing'),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )
+              const Expanded(child: JHAScreen()),
             ]
           ],
         ),

@@ -1,4 +1,4 @@
-import 'package:LSTime/features/dailyreport/jha/incident.provider.dart';
+import 'package:LSTime/features/dailyreport/incident/incident.provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

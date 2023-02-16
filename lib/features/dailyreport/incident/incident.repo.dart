@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:LSTime/features/dailyreport/jha/incident.dart';
+import 'package:LSTime/features/dailyreport/incident/incident.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'incident.repo.g.dart';

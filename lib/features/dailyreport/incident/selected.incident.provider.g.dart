@@ -30,7 +30,7 @@ class _SystemHash {
 }
 
 String _$SelectedIncidentFormHash() =>
-    r'79faf49a7a584df2d3a44b9953154d78d9464fb4';
+    r'803475a2695ddc3b90174b3cb75451877d5d22ac';
 
 /// See also [SelectedIncidentForm].
 final selectedIncidentFormProvider =

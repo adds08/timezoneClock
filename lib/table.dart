@@ -226,60 +226,63 @@ class _UTableState extends State<UTable> {
   }
 
   Widget buildTable({required List<UDataColumn> tableCols, ScrollController? controller, isFixedColumn = false}) {
-    return Column(
-      children: [
-        Column(children: [
-          Row(children: tableCols.map((e) => cellConstraint(child: e)).toList()),
-          ...getRowData(rows: widget.rowsFixed, cols: tableCols)
-              .map(
-                (row) => Row(
-                  children: row.map((cell) => cellConstraint(child: cell)).toList(),
+    return Container(
+      color: Colors.black54,
+      child: Column(
+        children: [
+          Column(children: [
+            Row(children: tableCols.map((e) => cellConstraint(child: e)).toList()),
+            ...getRowData(rows: widget.rowsFixed, cols: tableCols)
+                .map(
+                  (row) => Row(
+                    children: row.map((cell) => cellConstraint(child: cell)).toList(),
+                  ),
+                )
+                .toList(),
+          ]),
+          Expanded(
+            child: NotificationListener<ScrollNotification>(
+              onNotification: (notification) {
+                if (controller is Row1ScrollController) {
+                  controllerR2.jumpTo(controller.offset);
+                }
+                return false;
+              },
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
+                controller: controller,
+                child: Column(
+                  children: [
+                    if (widget.rowsHeader.isNotEmpty)
+                      ...getRowData(rows: widget.rowsHeader, cols: tableCols)
+                          .map(
+                            (row) => Row(
+                              children: row.map((cell) => cellConstraint(child: cell)).toList(),
+                            ),
+                          )
+                          .toList(),
+                    ...getRowData(rows: rowList, cols: tableCols)
+                        .map(
+                          (row) => Row(
+                            children: row.map((cell) => cellConstraint(child: cell)).toList(),
+                          ),
+                        )
+                        .toList(),
+                    if (widget.rowsFooter.isNotEmpty)
+                      ...getRowData(rows: widget.rowsFooter, cols: tableCols)
+                          .map(
+                            (row) => Row(
+                              children: row.map((cell) => cellConstraint(child: cell)).toList(),
+                            ),
+                          )
+                          .toList(),
+                  ],
                 ),
-              )
-              .toList(),
-        ]),
-        Expanded(
-          child: NotificationListener<ScrollNotification>(
-            onNotification: (notification) {
-              if (controller is Row1ScrollController) {
-                controllerR2.jumpTo(controller.offset);
-              }
-              return false;
-            },
-            child: SingleChildScrollView(
-              physics: const ClampingScrollPhysics(),
-              controller: controller,
-              child: Column(
-                children: [
-                  if (widget.rowsHeader.isNotEmpty)
-                    ...getRowData(rows: widget.rowsHeader, cols: tableCols)
-                        .map(
-                          (row) => Row(
-                            children: row.map((cell) => cellConstraint(child: cell)).toList(),
-                          ),
-                        )
-                        .toList(),
-                  ...getRowData(rows: rowList, cols: tableCols)
-                      .map(
-                        (row) => Row(
-                          children: row.map((cell) => cellConstraint(child: cell)).toList(),
-                        ),
-                      )
-                      .toList(),
-                  if (widget.rowsFooter.isNotEmpty)
-                    ...getRowData(rows: widget.rowsFooter, cols: tableCols)
-                        .map(
-                          (row) => Row(
-                            children: row.map((cell) => cellConstraint(child: cell)).toList(),
-                          ),
-                        )
-                        .toList(),
-                ],
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -337,6 +340,8 @@ class FixedConstraint extends StatelessWidget {
     return ConstrainedBox(
         constraints: BoxConstraints.tightFor(width: width, height: height),
         child: Card(
+          borderOnForeground: false,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(2))),
           child: Container(
             padding: const EdgeInsets.all(6.0),
             alignment: Alignment.topLeft,

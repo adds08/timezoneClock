@@ -1,4 +1,4 @@
-import 'package:LSTime/features/dailyreport/jha/incident.provider.dart';
+import 'package:LSTime/features/dailyreport/incident/incident.provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
