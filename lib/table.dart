@@ -330,15 +330,15 @@ class FixedConstraint extends StatelessWidget {
   final Widget child;
   const FixedConstraint({
     Key? key,
-    this.height = 100,
-    this.width = 120,
+    this.height = 60,
+    this.width = 100,
     required this.child,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-        constraints: BoxConstraints.tightFor(width: width, height: height),
+        constraints: BoxConstraints.tightForFinite(width: width, height: height ?? 0),
         child: Card(
           borderOnForeground: false,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(2))),

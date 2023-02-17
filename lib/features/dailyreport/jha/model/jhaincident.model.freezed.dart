@@ -20,10 +20,13 @@ JHAIncidentModel _$JHAIncidentModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JHAIncidentModel {
+  @HiveField(0)
   @JsonKey(defaultValue: "")
   String get steps => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(defaultValue: "")
   String get hazard => throw _privateConstructorUsedError;
+  @HiveField(2)
   @JsonKey(defaultValue: "")
   String get action => throw _privateConstructorUsedError;
 
@@ -40,9 +43,9 @@ abstract class $JHAIncidentModelCopyWith<$Res> {
       _$JHAIncidentModelCopyWithImpl<$Res, JHAIncidentModel>;
   @useResult
   $Res call(
-      {@JsonKey(defaultValue: "") String steps,
-      @JsonKey(defaultValue: "") String hazard,
-      @JsonKey(defaultValue: "") String action});
+      {@HiveField(0) @JsonKey(defaultValue: "") String steps,
+      @HiveField(1) @JsonKey(defaultValue: "") String hazard,
+      @HiveField(2) @JsonKey(defaultValue: "") String action});
 }
 
 /// @nodoc
@@ -88,9 +91,9 @@ abstract class _$$_JHAIncidentModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(defaultValue: "") String steps,
-      @JsonKey(defaultValue: "") String hazard,
-      @JsonKey(defaultValue: "") String action});
+      {@HiveField(0) @JsonKey(defaultValue: "") String steps,
+      @HiveField(1) @JsonKey(defaultValue: "") String hazard,
+      @HiveField(2) @JsonKey(defaultValue: "") String action});
 }
 
 /// @nodoc
@@ -127,22 +130,26 @@ class __$$_JHAIncidentModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 0, adapterName: 'JHAIncidentModelAdapter')
 class _$_JHAIncidentModel implements _JHAIncidentModel {
   _$_JHAIncidentModel(
-      {@JsonKey(defaultValue: "") required this.steps,
-      @JsonKey(defaultValue: "") required this.hazard,
-      @JsonKey(defaultValue: "") required this.action});
+      {@HiveField(0) @JsonKey(defaultValue: "") required this.steps,
+      @HiveField(1) @JsonKey(defaultValue: "") required this.hazard,
+      @HiveField(2) @JsonKey(defaultValue: "") required this.action});
 
   factory _$_JHAIncidentModel.fromJson(Map<String, dynamic> json) =>
       _$$_JHAIncidentModelFromJson(json);
 
   @override
+  @HiveField(0)
   @JsonKey(defaultValue: "")
   final String steps;
   @override
+  @HiveField(1)
   @JsonKey(defaultValue: "")
   final String hazard;
   @override
+  @HiveField(2)
   @JsonKey(defaultValue: "")
   final String action;
 
@@ -181,21 +188,29 @@ class _$_JHAIncidentModel implements _JHAIncidentModel {
 
 abstract class _JHAIncidentModel implements JHAIncidentModel {
   factory _JHAIncidentModel(
-          {@JsonKey(defaultValue: "") required final String steps,
-          @JsonKey(defaultValue: "") required final String hazard,
-          @JsonKey(defaultValue: "") required final String action}) =
-      _$_JHAIncidentModel;
+      {@HiveField(0)
+      @JsonKey(defaultValue: "")
+          required final String steps,
+      @HiveField(1)
+      @JsonKey(defaultValue: "")
+          required final String hazard,
+      @HiveField(2)
+      @JsonKey(defaultValue: "")
+          required final String action}) = _$_JHAIncidentModel;
 
   factory _JHAIncidentModel.fromJson(Map<String, dynamic> json) =
       _$_JHAIncidentModel.fromJson;
 
   @override
+  @HiveField(0)
   @JsonKey(defaultValue: "")
   String get steps;
   @override
+  @HiveField(1)
   @JsonKey(defaultValue: "")
   String get hazard;
   @override
+  @HiveField(2)
   @JsonKey(defaultValue: "")
   String get action;
   @override

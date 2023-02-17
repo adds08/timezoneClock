@@ -2,6 +2,7 @@ import 'package:LSTime/features/dailyreport/jha/application/jha.provider.dart';
 import 'package:LSTime/features/dailyreport/jha/application/selectedJha.provider.dart';
 import 'package:LSTime/features/dailyreport/jha/common_widgets/jhaform.widgets.dart';
 import 'package:LSTime/features/dailyreport/jha/presentation/jhaform.screen.dart';
+import 'package:LSTime/features/employeematrix/example.chart.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -39,7 +40,8 @@ class JHAScreen extends ConsumerWidget {
                       ],
                     ),
                   ),
-                )
+                ),
+                LineChartSample5()
               ],
             ),
           ),

@@ -2,7 +2,7 @@ import 'package:LSTime/features/dailyreport/incident/incident.dart';
 import 'package:LSTime/features/dailyreport/incident/incident.provider.dart';
 import 'package:LSTime/features/dailyreport/incident/selected.incident.provider.dart';
 import 'package:LSTime/features/dailyreport/jha/presentation/jhaList.screen.dart';
-import 'package:LSTime/features/dailyreport/jha/presentation/jhaform.screen.dart';
+import 'package:LSTime/features/employeematrix/employeematrix.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -60,17 +60,17 @@ class _UrbanHomeScreen4State extends State<UrbanHomeScreen4> {
                 NavigationRailDestination(
                   icon: Icon(Icons.favorite_border),
                   selectedIcon: Icon(Icons.favorite),
-                  label: Text('First'),
+                  label: Text('Employee Matrix'),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.bookmark_border),
                   selectedIcon: Icon(Icons.book),
-                  label: Text('Daily Time & Reports'),
+                  label: Text('Experimental'),
                 ),
                 NavigationRailDestination(
                   icon: Icon(Icons.star_border),
                   selectedIcon: Icon(Icons.star),
-                  label: Text('Third'),
+                  label: Text('JHA Report'),
                 ),
               ],
             ),
@@ -78,8 +78,8 @@ class _UrbanHomeScreen4State extends State<UrbanHomeScreen4> {
             // This is the main content.
 
             if (_selectedIndex == 0) ...[
-              // const Expanded(child: DashboardScreen()),
-              const Expanded(child: JHAFormScreen()),
+              const Expanded(child: EmployeeMatrixScreen()),
+              // const Expanded(child: JHAFormScreen()),
             ] else if (_selectedIndex == 1) ...[
               const Expanded(child: IncidentListWidget()),
             ] else ...[

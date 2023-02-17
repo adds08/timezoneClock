@@ -20,40 +20,75 @@ JHAModel _$JHAModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JHAModel {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get company => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get segment => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get workPlan => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get date => throw _privateConstructorUsedError;
+  @HiveField(5)
   String get dayOrNight => throw _privateConstructorUsedError;
+  @HiveField(6)
   String get competentPerson => throw _privateConstructorUsedError;
+  @HiveField(7)
   String get supervisor => throw _privateConstructorUsedError;
+  @HiveField(8)
   String get certifiedPerson => throw _privateConstructorUsedError;
+  @HiveField(9)
   String get certifiedFlagger => throw _privateConstructorUsedError;
+  @HiveField(10)
   String get task => throw _privateConstructorUsedError;
+  @HiveField(11)
   bool get isNight => throw _privateConstructorUsedError;
+  @HiveField(12)
   List<String> get machineryList => throw _privateConstructorUsedError;
+  @HiveField(13)
   List<String> get toolsList => throw _privateConstructorUsedError;
+  @HiveField(14)
   List<String> get ppeList => throw _privateConstructorUsedError;
+  @HiveField(15)
   List<JHAIncidentModel> get incidents => throw _privateConstructorUsedError;
+  @HiveField(16)
   List<JHACrewModel> get crews => throw _privateConstructorUsedError;
+  @HiveField(17)
   bool get shades => throw _privateConstructorUsedError;
+  @HiveField(18)
   bool get water => throw _privateConstructorUsedError;
+  @HiveField(19)
   bool get paperCups => throw _privateConstructorUsedError;
+  @HiveField(20)
   bool get trashes => throw _privateConstructorUsedError;
+  @HiveField(21)
   bool get restrooms => throw _privateConstructorUsedError;
+  @HiveField(22)
   bool get extinguishers => throw _privateConstructorUsedError;
+  @HiveField(23)
   bool get gfcis => throw _privateConstructorUsedError;
+  @HiveField(24)
   bool get workAreaProtection => throw _privateConstructorUsedError;
+  @HiveField(25)
   bool get firstAidKit => throw _privateConstructorUsedError;
+  @HiveField(26)
   bool get craneLiftPlan => throw _privateConstructorUsedError;
+  @HiveField(27)
   bool get machinery => throw _privateConstructorUsedError;
+  @HiveField(28)
   bool get toolsAndEquipment => throw _privateConstructorUsedError;
+  @HiveField(29)
   bool get excavations => throw _privateConstructorUsedError;
+  @HiveField(30)
   bool get scaffolds => throw _privateConstructorUsedError;
+  @HiveField(31)
   bool get utility => throw _privateConstructorUsedError;
+  @HiveField(32)
   bool get proximity => throw _privateConstructorUsedError;
+  @HiveField(33)
   bool get confinedSpace => throw _privateConstructorUsedError;
+  @HiveField(34)
   bool get hotWork => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -68,41 +103,41 @@ abstract class $JHAModelCopyWith<$Res> {
       _$JHAModelCopyWithImpl<$Res, JHAModel>;
   @useResult
   $Res call(
-      {String id,
-      String company,
-      String segment,
-      String workPlan,
-      String date,
-      String dayOrNight,
-      String competentPerson,
-      String supervisor,
-      String certifiedPerson,
-      String certifiedFlagger,
-      String task,
-      bool isNight,
-      List<String> machineryList,
-      List<String> toolsList,
-      List<String> ppeList,
-      List<JHAIncidentModel> incidents,
-      List<JHACrewModel> crews,
-      bool shades,
-      bool water,
-      bool paperCups,
-      bool trashes,
-      bool restrooms,
-      bool extinguishers,
-      bool gfcis,
-      bool workAreaProtection,
-      bool firstAidKit,
-      bool craneLiftPlan,
-      bool machinery,
-      bool toolsAndEquipment,
-      bool excavations,
-      bool scaffolds,
-      bool utility,
-      bool proximity,
-      bool confinedSpace,
-      bool hotWork});
+      {@HiveField(0) String id,
+      @HiveField(1) String company,
+      @HiveField(2) String segment,
+      @HiveField(3) String workPlan,
+      @HiveField(4) String date,
+      @HiveField(5) String dayOrNight,
+      @HiveField(6) String competentPerson,
+      @HiveField(7) String supervisor,
+      @HiveField(8) String certifiedPerson,
+      @HiveField(9) String certifiedFlagger,
+      @HiveField(10) String task,
+      @HiveField(11) bool isNight,
+      @HiveField(12) List<String> machineryList,
+      @HiveField(13) List<String> toolsList,
+      @HiveField(14) List<String> ppeList,
+      @HiveField(15) List<JHAIncidentModel> incidents,
+      @HiveField(16) List<JHACrewModel> crews,
+      @HiveField(17) bool shades,
+      @HiveField(18) bool water,
+      @HiveField(19) bool paperCups,
+      @HiveField(20) bool trashes,
+      @HiveField(21) bool restrooms,
+      @HiveField(22) bool extinguishers,
+      @HiveField(23) bool gfcis,
+      @HiveField(24) bool workAreaProtection,
+      @HiveField(25) bool firstAidKit,
+      @HiveField(26) bool craneLiftPlan,
+      @HiveField(27) bool machinery,
+      @HiveField(28) bool toolsAndEquipment,
+      @HiveField(29) bool excavations,
+      @HiveField(30) bool scaffolds,
+      @HiveField(31) bool utility,
+      @HiveField(32) bool proximity,
+      @HiveField(33) bool confinedSpace,
+      @HiveField(34) bool hotWork});
 }
 
 /// @nodoc
@@ -307,41 +342,41 @@ abstract class _$$_JHAModelCopyWith<$Res> implements $JHAModelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String company,
-      String segment,
-      String workPlan,
-      String date,
-      String dayOrNight,
-      String competentPerson,
-      String supervisor,
-      String certifiedPerson,
-      String certifiedFlagger,
-      String task,
-      bool isNight,
-      List<String> machineryList,
-      List<String> toolsList,
-      List<String> ppeList,
-      List<JHAIncidentModel> incidents,
-      List<JHACrewModel> crews,
-      bool shades,
-      bool water,
-      bool paperCups,
-      bool trashes,
-      bool restrooms,
-      bool extinguishers,
-      bool gfcis,
-      bool workAreaProtection,
-      bool firstAidKit,
-      bool craneLiftPlan,
-      bool machinery,
-      bool toolsAndEquipment,
-      bool excavations,
-      bool scaffolds,
-      bool utility,
-      bool proximity,
-      bool confinedSpace,
-      bool hotWork});
+      {@HiveField(0) String id,
+      @HiveField(1) String company,
+      @HiveField(2) String segment,
+      @HiveField(3) String workPlan,
+      @HiveField(4) String date,
+      @HiveField(5) String dayOrNight,
+      @HiveField(6) String competentPerson,
+      @HiveField(7) String supervisor,
+      @HiveField(8) String certifiedPerson,
+      @HiveField(9) String certifiedFlagger,
+      @HiveField(10) String task,
+      @HiveField(11) bool isNight,
+      @HiveField(12) List<String> machineryList,
+      @HiveField(13) List<String> toolsList,
+      @HiveField(14) List<String> ppeList,
+      @HiveField(15) List<JHAIncidentModel> incidents,
+      @HiveField(16) List<JHACrewModel> crews,
+      @HiveField(17) bool shades,
+      @HiveField(18) bool water,
+      @HiveField(19) bool paperCups,
+      @HiveField(20) bool trashes,
+      @HiveField(21) bool restrooms,
+      @HiveField(22) bool extinguishers,
+      @HiveField(23) bool gfcis,
+      @HiveField(24) bool workAreaProtection,
+      @HiveField(25) bool firstAidKit,
+      @HiveField(26) bool craneLiftPlan,
+      @HiveField(27) bool machinery,
+      @HiveField(28) bool toolsAndEquipment,
+      @HiveField(29) bool excavations,
+      @HiveField(30) bool scaffolds,
+      @HiveField(31) bool utility,
+      @HiveField(32) bool proximity,
+      @HiveField(33) bool confinedSpace,
+      @HiveField(34) bool hotWork});
 }
 
 /// @nodoc
@@ -538,43 +573,44 @@ class __$$_JHAModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 2, adapterName: 'JHAModelAdapter')
 class _$_JHAModel implements _JHAModel {
   _$_JHAModel(
-      {this.id = "",
-      this.company = "",
-      this.segment = "",
-      this.workPlan = "",
-      this.date = "",
-      this.dayOrNight = "",
-      this.competentPerson = "",
-      this.supervisor = "",
-      this.certifiedPerson = "",
-      this.certifiedFlagger = "",
-      this.task = "",
-      this.isNight = false,
-      final List<String> machineryList = const [],
-      final List<String> toolsList = const [],
-      final List<String> ppeList = const [],
-      final List<JHAIncidentModel> incidents = const [],
-      final List<JHACrewModel> crews = const [],
-      this.shades = false,
-      this.water = false,
-      this.paperCups = false,
-      this.trashes = false,
-      this.restrooms = false,
-      this.extinguishers = false,
-      this.gfcis = false,
-      this.workAreaProtection = false,
-      this.firstAidKit = false,
-      this.craneLiftPlan = false,
-      this.machinery = false,
-      this.toolsAndEquipment = false,
-      this.excavations = false,
-      this.scaffolds = false,
-      this.utility = false,
-      this.proximity = false,
-      this.confinedSpace = false,
-      this.hotWork = false})
+      {@HiveField(0) this.id = "",
+      @HiveField(1) this.company = "",
+      @HiveField(2) this.segment = "",
+      @HiveField(3) this.workPlan = "",
+      @HiveField(4) this.date = "",
+      @HiveField(5) this.dayOrNight = "",
+      @HiveField(6) this.competentPerson = "",
+      @HiveField(7) this.supervisor = "",
+      @HiveField(8) this.certifiedPerson = "",
+      @HiveField(9) this.certifiedFlagger = "",
+      @HiveField(10) this.task = "",
+      @HiveField(11) this.isNight = false,
+      @HiveField(12) final List<String> machineryList = const [],
+      @HiveField(13) final List<String> toolsList = const [],
+      @HiveField(14) final List<String> ppeList = const [],
+      @HiveField(15) final List<JHAIncidentModel> incidents = const [],
+      @HiveField(16) final List<JHACrewModel> crews = const [],
+      @HiveField(17) this.shades = false,
+      @HiveField(18) this.water = false,
+      @HiveField(19) this.paperCups = false,
+      @HiveField(20) this.trashes = false,
+      @HiveField(21) this.restrooms = false,
+      @HiveField(22) this.extinguishers = false,
+      @HiveField(23) this.gfcis = false,
+      @HiveField(24) this.workAreaProtection = false,
+      @HiveField(25) this.firstAidKit = false,
+      @HiveField(26) this.craneLiftPlan = false,
+      @HiveField(27) this.machinery = false,
+      @HiveField(28) this.toolsAndEquipment = false,
+      @HiveField(29) this.excavations = false,
+      @HiveField(30) this.scaffolds = false,
+      @HiveField(31) this.utility = false,
+      @HiveField(32) this.proximity = false,
+      @HiveField(33) this.confinedSpace = false,
+      @HiveField(34) this.hotWork = false})
       : _machineryList = machineryList,
         _toolsList = toolsList,
         _ppeList = ppeList,
@@ -586,43 +622,56 @@ class _$_JHAModel implements _JHAModel {
 
   @override
   @JsonKey()
+  @HiveField(0)
   final String id;
   @override
   @JsonKey()
+  @HiveField(1)
   final String company;
   @override
   @JsonKey()
+  @HiveField(2)
   final String segment;
   @override
   @JsonKey()
+  @HiveField(3)
   final String workPlan;
   @override
   @JsonKey()
+  @HiveField(4)
   final String date;
   @override
   @JsonKey()
+  @HiveField(5)
   final String dayOrNight;
   @override
   @JsonKey()
+  @HiveField(6)
   final String competentPerson;
   @override
   @JsonKey()
+  @HiveField(7)
   final String supervisor;
   @override
   @JsonKey()
+  @HiveField(8)
   final String certifiedPerson;
   @override
   @JsonKey()
+  @HiveField(9)
   final String certifiedFlagger;
   @override
   @JsonKey()
+  @HiveField(10)
   final String task;
   @override
   @JsonKey()
+  @HiveField(11)
   final bool isNight;
   final List<String> _machineryList;
   @override
   @JsonKey()
+  @HiveField(12)
   List<String> get machineryList {
     if (_machineryList is EqualUnmodifiableListView) return _machineryList;
     // ignore: implicit_dynamic_type
@@ -632,6 +681,7 @@ class _$_JHAModel implements _JHAModel {
   final List<String> _toolsList;
   @override
   @JsonKey()
+  @HiveField(13)
   List<String> get toolsList {
     if (_toolsList is EqualUnmodifiableListView) return _toolsList;
     // ignore: implicit_dynamic_type
@@ -641,6 +691,7 @@ class _$_JHAModel implements _JHAModel {
   final List<String> _ppeList;
   @override
   @JsonKey()
+  @HiveField(14)
   List<String> get ppeList {
     if (_ppeList is EqualUnmodifiableListView) return _ppeList;
     // ignore: implicit_dynamic_type
@@ -650,6 +701,7 @@ class _$_JHAModel implements _JHAModel {
   final List<JHAIncidentModel> _incidents;
   @override
   @JsonKey()
+  @HiveField(15)
   List<JHAIncidentModel> get incidents {
     if (_incidents is EqualUnmodifiableListView) return _incidents;
     // ignore: implicit_dynamic_type
@@ -659,6 +711,7 @@ class _$_JHAModel implements _JHAModel {
   final List<JHACrewModel> _crews;
   @override
   @JsonKey()
+  @HiveField(16)
   List<JHACrewModel> get crews {
     if (_crews is EqualUnmodifiableListView) return _crews;
     // ignore: implicit_dynamic_type
@@ -667,57 +720,75 @@ class _$_JHAModel implements _JHAModel {
 
   @override
   @JsonKey()
+  @HiveField(17)
   final bool shades;
   @override
   @JsonKey()
+  @HiveField(18)
   final bool water;
   @override
   @JsonKey()
+  @HiveField(19)
   final bool paperCups;
   @override
   @JsonKey()
+  @HiveField(20)
   final bool trashes;
   @override
   @JsonKey()
+  @HiveField(21)
   final bool restrooms;
   @override
   @JsonKey()
+  @HiveField(22)
   final bool extinguishers;
   @override
   @JsonKey()
+  @HiveField(23)
   final bool gfcis;
   @override
   @JsonKey()
+  @HiveField(24)
   final bool workAreaProtection;
   @override
   @JsonKey()
+  @HiveField(25)
   final bool firstAidKit;
   @override
   @JsonKey()
+  @HiveField(26)
   final bool craneLiftPlan;
   @override
   @JsonKey()
+  @HiveField(27)
   final bool machinery;
   @override
   @JsonKey()
+  @HiveField(28)
   final bool toolsAndEquipment;
   @override
   @JsonKey()
+  @HiveField(29)
   final bool excavations;
   @override
   @JsonKey()
+  @HiveField(30)
   final bool scaffolds;
   @override
   @JsonKey()
+  @HiveField(31)
   final bool utility;
   @override
   @JsonKey()
+  @HiveField(32)
   final bool proximity;
   @override
   @JsonKey()
+  @HiveField(33)
   final bool confinedSpace;
   @override
   @JsonKey()
+  @HiveField(34)
   final bool hotWork;
 
   @override
@@ -845,113 +916,148 @@ class _$_JHAModel implements _JHAModel {
 
 abstract class _JHAModel implements JHAModel {
   factory _JHAModel(
-      {final String id,
-      final String company,
-      final String segment,
-      final String workPlan,
-      final String date,
-      final String dayOrNight,
-      final String competentPerson,
-      final String supervisor,
-      final String certifiedPerson,
-      final String certifiedFlagger,
-      final String task,
-      final bool isNight,
-      final List<String> machineryList,
-      final List<String> toolsList,
-      final List<String> ppeList,
-      final List<JHAIncidentModel> incidents,
-      final List<JHACrewModel> crews,
-      final bool shades,
-      final bool water,
-      final bool paperCups,
-      final bool trashes,
-      final bool restrooms,
-      final bool extinguishers,
-      final bool gfcis,
-      final bool workAreaProtection,
-      final bool firstAidKit,
-      final bool craneLiftPlan,
-      final bool machinery,
-      final bool toolsAndEquipment,
-      final bool excavations,
-      final bool scaffolds,
-      final bool utility,
-      final bool proximity,
-      final bool confinedSpace,
-      final bool hotWork}) = _$_JHAModel;
+      {@HiveField(0) final String id,
+      @HiveField(1) final String company,
+      @HiveField(2) final String segment,
+      @HiveField(3) final String workPlan,
+      @HiveField(4) final String date,
+      @HiveField(5) final String dayOrNight,
+      @HiveField(6) final String competentPerson,
+      @HiveField(7) final String supervisor,
+      @HiveField(8) final String certifiedPerson,
+      @HiveField(9) final String certifiedFlagger,
+      @HiveField(10) final String task,
+      @HiveField(11) final bool isNight,
+      @HiveField(12) final List<String> machineryList,
+      @HiveField(13) final List<String> toolsList,
+      @HiveField(14) final List<String> ppeList,
+      @HiveField(15) final List<JHAIncidentModel> incidents,
+      @HiveField(16) final List<JHACrewModel> crews,
+      @HiveField(17) final bool shades,
+      @HiveField(18) final bool water,
+      @HiveField(19) final bool paperCups,
+      @HiveField(20) final bool trashes,
+      @HiveField(21) final bool restrooms,
+      @HiveField(22) final bool extinguishers,
+      @HiveField(23) final bool gfcis,
+      @HiveField(24) final bool workAreaProtection,
+      @HiveField(25) final bool firstAidKit,
+      @HiveField(26) final bool craneLiftPlan,
+      @HiveField(27) final bool machinery,
+      @HiveField(28) final bool toolsAndEquipment,
+      @HiveField(29) final bool excavations,
+      @HiveField(30) final bool scaffolds,
+      @HiveField(31) final bool utility,
+      @HiveField(32) final bool proximity,
+      @HiveField(33) final bool confinedSpace,
+      @HiveField(34) final bool hotWork}) = _$_JHAModel;
 
   factory _JHAModel.fromJson(Map<String, dynamic> json) = _$_JHAModel.fromJson;
 
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get company;
   @override
+  @HiveField(2)
   String get segment;
   @override
+  @HiveField(3)
   String get workPlan;
   @override
+  @HiveField(4)
   String get date;
   @override
+  @HiveField(5)
   String get dayOrNight;
   @override
+  @HiveField(6)
   String get competentPerson;
   @override
+  @HiveField(7)
   String get supervisor;
   @override
+  @HiveField(8)
   String get certifiedPerson;
   @override
+  @HiveField(9)
   String get certifiedFlagger;
   @override
+  @HiveField(10)
   String get task;
   @override
+  @HiveField(11)
   bool get isNight;
   @override
+  @HiveField(12)
   List<String> get machineryList;
   @override
+  @HiveField(13)
   List<String> get toolsList;
   @override
+  @HiveField(14)
   List<String> get ppeList;
   @override
+  @HiveField(15)
   List<JHAIncidentModel> get incidents;
   @override
+  @HiveField(16)
   List<JHACrewModel> get crews;
   @override
+  @HiveField(17)
   bool get shades;
   @override
+  @HiveField(18)
   bool get water;
   @override
+  @HiveField(19)
   bool get paperCups;
   @override
+  @HiveField(20)
   bool get trashes;
   @override
+  @HiveField(21)
   bool get restrooms;
   @override
+  @HiveField(22)
   bool get extinguishers;
   @override
+  @HiveField(23)
   bool get gfcis;
   @override
+  @HiveField(24)
   bool get workAreaProtection;
   @override
+  @HiveField(25)
   bool get firstAidKit;
   @override
+  @HiveField(26)
   bool get craneLiftPlan;
   @override
+  @HiveField(27)
   bool get machinery;
   @override
+  @HiveField(28)
   bool get toolsAndEquipment;
   @override
+  @HiveField(29)
   bool get excavations;
   @override
+  @HiveField(30)
   bool get scaffolds;
   @override
+  @HiveField(31)
   bool get utility;
   @override
+  @HiveField(32)
   bool get proximity;
   @override
+  @HiveField(33)
   bool get confinedSpace;
   @override
+  @HiveField(34)
   bool get hotWork;
   @override
   @JsonKey(ignore: true)

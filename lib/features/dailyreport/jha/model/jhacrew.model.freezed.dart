@@ -20,8 +20,10 @@ JHACrewModel _$JHACrewModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$JHACrewModel {
+  @HiveField(0)
   @JsonKey(defaultValue: "")
   String get name => throw _privateConstructorUsedError;
+  @HiveField(1)
   @JsonKey(defaultValue: null)
   String? get signature => throw _privateConstructorUsedError;
 
@@ -38,8 +40,8 @@ abstract class $JHACrewModelCopyWith<$Res> {
       _$JHACrewModelCopyWithImpl<$Res, JHACrewModel>;
   @useResult
   $Res call(
-      {@JsonKey(defaultValue: "") String name,
-      @JsonKey(defaultValue: null) String? signature});
+      {@HiveField(0) @JsonKey(defaultValue: "") String name,
+      @HiveField(1) @JsonKey(defaultValue: null) String? signature});
 }
 
 /// @nodoc
@@ -80,8 +82,8 @@ abstract class _$$_JHACrewModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(defaultValue: "") String name,
-      @JsonKey(defaultValue: null) String? signature});
+      {@HiveField(0) @JsonKey(defaultValue: "") String name,
+      @HiveField(1) @JsonKey(defaultValue: null) String? signature});
 }
 
 /// @nodoc
@@ -113,19 +115,22 @@ class __$$_JHACrewModelCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 1, adapterName: 'JHAIncidentModelAdapter')
 @JsonSerializable(explicitToJson: true)
 class _$_JHACrewModel implements _JHACrewModel {
   _$_JHACrewModel(
-      {@JsonKey(defaultValue: "") required this.name,
-      @JsonKey(defaultValue: null) this.signature});
+      {@HiveField(0) @JsonKey(defaultValue: "") required this.name,
+      @HiveField(1) @JsonKey(defaultValue: null) this.signature});
 
   factory _$_JHACrewModel.fromJson(Map<String, dynamic> json) =>
       _$$_JHACrewModelFromJson(json);
 
   @override
+  @HiveField(0)
   @JsonKey(defaultValue: "")
   final String name;
   @override
+  @HiveField(1)
   @JsonKey(defaultValue: null)
   final String? signature;
 
@@ -164,16 +169,19 @@ class _$_JHACrewModel implements _JHACrewModel {
 
 abstract class _JHACrewModel implements JHACrewModel {
   factory _JHACrewModel(
-      {@JsonKey(defaultValue: "") required final String name,
-      @JsonKey(defaultValue: null) final String? signature}) = _$_JHACrewModel;
+          {@HiveField(0) @JsonKey(defaultValue: "") required final String name,
+          @HiveField(1) @JsonKey(defaultValue: null) final String? signature}) =
+      _$_JHACrewModel;
 
   factory _JHACrewModel.fromJson(Map<String, dynamic> json) =
       _$_JHACrewModel.fromJson;
 
   @override
+  @HiveField(0)
   @JsonKey(defaultValue: "")
   String get name;
   @override
+  @HiveField(1)
   @JsonKey(defaultValue: null)
   String? get signature;
   @override

@@ -50,33 +50,33 @@ class UrbanLoginScreen extends ConsumerWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      MaterialButton(
-                        color: Colors.greenAccent,
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            Navigator.of(context).pushNamed("/home1");
-                          }
-                        },
-                        child: Text("Login 1"),
-                      ),
-                      MaterialButton(
-                        color: Colors.greenAccent,
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            Navigator.of(context).pushNamed("/home2");
-                          }
-                        },
-                        child: Text("Login 2"),
-                      ),
-                      MaterialButton(
-                        color: Colors.greenAccent,
-                        onPressed: () async {
-                          if (formKey.currentState!.validate()) {
-                            Navigator.of(context).pushNamed("/home3");
-                          }
-                        },
-                        child: Text("Login 3"),
-                      ),
+                      // MaterialButton(
+                      //   color: Colors.greenAccent,
+                      //   onPressed: () async {
+                      //     if (formKey.currentState!.validate()) {
+                      //       Navigator.of(context).pushNamed("/home1");
+                      //     }
+                      //   },
+                      //   child: Text("Login 1"),
+                      // ),
+                      // MaterialButton(
+                      //   color: Colors.greenAccent,
+                      //   onPressed: () async {
+                      //     if (formKey.currentState!.validate()) {
+                      //       Navigator.of(context).pushNamed("/home2");
+                      //     }
+                      //   },
+                      //   child: Text("Login 2"),
+                      // ),
+                      // MaterialButton(
+                      //   color: Colors.greenAccent,
+                      //   onPressed: () async {
+                      //     if (formKey.currentState!.validate()) {
+                      //       Navigator.of(context).pushNamed("/home3");
+                      //     }
+                      //   },
+                      //   child: Text("Login 3"),
+                      // ),
                       MaterialButton(
                         color: Colors.greenAccent,
                         onPressed: () async {
