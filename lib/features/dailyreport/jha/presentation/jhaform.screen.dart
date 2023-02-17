@@ -1,7 +1,12 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:LSTime/features/dailyreport/jha/application/selectedJha.provider.dart';
 import 'package:LSTime/features/dailyreport/jha/common_widgets/jhaform.widgets.dart';
 import 'package:LSTime/features/dailyreport/jha/model/jha.model.dart';
+import 'package:LSTime/features/dailyreport/jha/model/jhacrew.model.dart';
 import 'package:LSTime/features/dailyreport/jha/model/jhaincident.model.dart';
+import 'package:LSTime/utils/signature.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -53,25 +58,37 @@ class _JHAFormScreenState extends ConsumerState<JHAFormScreen> {
     toolListController = [];
     ppeListController = [];
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              if (ref.read(selectedJHAProvider.notifier).lengthOfUndos > 0) {
-                ref.read(selectedJHAProvider.notifier).undo();
-              }
-            },
-            icon: Icon(Icons.undo),
-          ),
-          IconButton(
-            onPressed: () {
-              if (ref.read(selectedJHAProvider.notifier).lengthOfRedos > 0) {
-                ref.read(selectedJHAProvider.notifier).redo();
-              }
-            },
-            icon: Icon(Icons.redo),
-          ),
-        ],
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            TextButton(
+                onPressed: () {
+                  if (Navigator.of(context).canPop()) {
+                    Navigator.of(context).pop();
+                  }
+                },
+                child: const Text("Save & Cancel")),
+            const Spacer(),
+            TextButton(onPressed: () {}, child: const Text("Save & Upload")),
+            // const Spacer(),
+            // IconButton(
+            //   onPressed: () {
+            //     if (ref.read(selectedJHAProvider.notifier).lengthOfUndos > 0) {
+            //       ref.read(selectedJHAProvider.notifier).undo();
+            //     }
+            //   },
+            //   icon: const Icon(Icons.undo),
+            // ),
+            // IconButton(
+            //   onPressed: () {
+            //     if (ref.read(selectedJHAProvider.notifier).lengthOfRedos > 0) {
+            //       ref.read(selectedJHAProvider.notifier).redo();
+            //     }
+            //   },
+            //   icon: const Icon(Icons.redo),
+            // ),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
@@ -470,7 +487,7 @@ class _JHAFormScreenState extends ConsumerState<JHAFormScreen> {
                   const SizedBox(
                     height: 12,
                   ),
-
+                  // start of list of machinery, tools and ppe
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -676,16 +693,182 @@ class _JHAFormScreenState extends ConsumerState<JHAFormScreen> {
                       ),
                     ],
                   ),
-                  // MaterialButton(
-                  //   onPressed: () {},
-                  //   child: const UrbanJHAText("Add data"),
-                  // ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  // start to list all crew members
+                  const JHACrewList(),
+                  const SizedBox(
+                    height: 50,
+                  ),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class JHACrewList extends ConsumerWidget {
+  const JHACrewList({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    List<TextEditingController> crewController = [];
+    void popContext() {
+      if (Navigator.of(context).canPop()) {
+        Navigator.of(context).pop();
+      }
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Table(
+          border: TableBorder.all(color: Colors.black),
+          columnWidths: const {
+            0: FlexColumnWidth(),
+            1: FlexColumnWidth(),
+            2: FixedColumnWidth(100),
+          },
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          children: [
+            const TableRow(children: [
+              TablePaddedCell(child: UrbanJHAText("Name")),
+              TablePaddedCell(child: UrbanJHAText("Signature")),
+              TablePaddedCell(child: UrbanJHAText("Remove")),
+            ]),
+            ...List<TableRow>.generate(
+              ref.watch(selectedJHAProvider).crews.length,
+              (index) {
+                crewController.add(TextEditingController(text: ref.read(selectedJHAProvider).crews[index].name));
+                return TableRow(
+                  children: [
+                    Focus(
+                      onFocusChange: (value) {
+                        if (!value) {
+                          JHACrewModel newCrew = ref.read(selectedJHAProvider).crews[index].copyWith(name: crewController[index].text);
+                          ref.read(selectedJHAProvider.notifier).updateCrew(index, newCrew);
+                        }
+                      },
+                      child: TablePaddedCell(
+                        child: UrbanJHATextFormField(
+                          controller: crewController[index],
+                        ),
+                      ),
+                    ),
+                    TablePaddedCell(
+                      child: (ref.read(selectedJHAProvider).crews[index].signature != null)
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.memory(
+                                  base64.decode(ref.read(selectedJHAProvider.select((value) => value.crews[index].signature!))),
+                                  scale: 0.25,
+                                  height: 75,
+                                  cacheHeight: 75,
+                                ),
+                                const SizedBox(
+                                  width: 18,
+                                ),
+                                IconButton(
+                                    onPressed: () {
+                                      JHACrewModel newCrew = ref.read(selectedJHAProvider).crews[index].copyWith(signature: null);
+                                      ref.read(selectedJHAProvider.notifier).updateCrew(index, newCrew);
+                                    },
+                                    icon: const Icon(Icons.clear))
+                              ],
+                            )
+                          : TextButton(
+                              onPressed: () {
+                                SignatureController signController = SignatureController();
+                                showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return Dialog(
+                                      child: SizedBox(
+                                        width: 3 * MediaQuery.of(context).size.width / 10,
+                                        height: 5 * MediaQuery.of(context).size.height / 10,
+                                        child: Column(
+                                          children: [
+                                            Expanded(
+                                              child: Container(
+                                                margin: const EdgeInsets.all(18),
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(20.0),
+                                                  border: Border.all(
+                                                    width: 2.0,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                                child: ClipRRect(
+                                                  borderRadius: BorderRadius.circular(20.0),
+                                                  child: Signature(
+                                                    controller: signController,
+                                                    backgroundColor: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              children: <Widget>[
+                                                TextButton(
+                                                  child: const Text("Clear"),
+                                                  onPressed: () => signController.clear(),
+                                                ),
+                                                TextButton(
+                                                  child: const Text("Done"),
+                                                  onPressed: () async {
+                                                    Uint8List? imageBytes = await signController.toPngBytes();
+                                                    if (imageBytes != null) {
+                                                      String imageData = base64.encode((imageBytes));
+                                                      JHACrewModel newCrew =
+                                                          ref.read(selectedJHAProvider).crews[index].copyWith(signature: imageData);
+                                                      ref.read(selectedJHAProvider.notifier).updateCrew(index, newCrew);
+                                                    }
+                                                    popContext();
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 18,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                              child: const Text("Add Signature"),
+                            ),
+                    ),
+                    IconButton(
+                        onPressed: () {
+                          ref.read(selectedJHAProvider.notifier).removeCrew(index);
+                        },
+                        icon: const Icon(Icons.delete))
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
+        MaterialButton(
+          color: Colors.grey.shade200,
+          shape: const Border(
+              bottom: BorderSide(color: Colors.black), left: BorderSide(color: Colors.black), right: BorderSide(color: Colors.black)),
+          onPressed: () {
+            JHACrewModel newCrew = JHACrewModel.fromJson({});
+            ref.read(selectedJHAProvider.notifier).addCrew(newCrew);
+          },
+          child: const Icon(Icons.add),
+        ),
+      ],
     );
   }
 }

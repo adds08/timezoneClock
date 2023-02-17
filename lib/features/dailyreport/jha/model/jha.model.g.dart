@@ -35,6 +35,10 @@ _$_JHAModel _$$_JHAModelFromJson(Map<String, dynamic> json) => _$_JHAModel(
               ?.map((e) => JHAIncidentModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      crews: (json['crews'] as List<dynamic>?)
+              ?.map((e) => JHACrewModel.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       shades: json['shades'] as bool? ?? false,
       water: json['water'] as bool? ?? false,
       paperCups: json['paperCups'] as bool? ?? false,
@@ -73,6 +77,7 @@ Map<String, dynamic> _$$_JHAModelToJson(_$_JHAModel instance) =>
       'toolsList': instance.toolsList,
       'ppeList': instance.ppeList,
       'incidents': instance.incidents,
+      'crews': instance.crews,
       'shades': instance.shades,
       'water': instance.water,
       'paperCups': instance.paperCups,

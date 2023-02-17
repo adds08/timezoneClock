@@ -36,6 +36,7 @@ mixin _$JHAModel {
   List<String> get toolsList => throw _privateConstructorUsedError;
   List<String> get ppeList => throw _privateConstructorUsedError;
   List<JHAIncidentModel> get incidents => throw _privateConstructorUsedError;
+  List<JHACrewModel> get crews => throw _privateConstructorUsedError;
   bool get shades => throw _privateConstructorUsedError;
   bool get water => throw _privateConstructorUsedError;
   bool get paperCups => throw _privateConstructorUsedError;
@@ -83,6 +84,7 @@ abstract class $JHAModelCopyWith<$Res> {
       List<String> toolsList,
       List<String> ppeList,
       List<JHAIncidentModel> incidents,
+      List<JHACrewModel> crews,
       bool shades,
       bool water,
       bool paperCups,
@@ -132,6 +134,7 @@ class _$JHAModelCopyWithImpl<$Res, $Val extends JHAModel>
     Object? toolsList = null,
     Object? ppeList = null,
     Object? incidents = null,
+    Object? crews = null,
     Object? shades = null,
     Object? water = null,
     Object? paperCups = null,
@@ -216,6 +219,10 @@ class _$JHAModelCopyWithImpl<$Res, $Val extends JHAModel>
           ? _value.incidents
           : incidents // ignore: cast_nullable_to_non_nullable
               as List<JHAIncidentModel>,
+      crews: null == crews
+          ? _value.crews
+          : crews // ignore: cast_nullable_to_non_nullable
+              as List<JHACrewModel>,
       shades: null == shades
           ? _value.shades
           : shades // ignore: cast_nullable_to_non_nullable
@@ -316,6 +323,7 @@ abstract class _$$_JHAModelCopyWith<$Res> implements $JHAModelCopyWith<$Res> {
       List<String> toolsList,
       List<String> ppeList,
       List<JHAIncidentModel> incidents,
+      List<JHACrewModel> crews,
       bool shades,
       bool water,
       bool paperCups,
@@ -363,6 +371,7 @@ class __$$_JHAModelCopyWithImpl<$Res>
     Object? toolsList = null,
     Object? ppeList = null,
     Object? incidents = null,
+    Object? crews = null,
     Object? shades = null,
     Object? water = null,
     Object? paperCups = null,
@@ -447,6 +456,10 @@ class __$$_JHAModelCopyWithImpl<$Res>
           ? _value._incidents
           : incidents // ignore: cast_nullable_to_non_nullable
               as List<JHAIncidentModel>,
+      crews: null == crews
+          ? _value._crews
+          : crews // ignore: cast_nullable_to_non_nullable
+              as List<JHACrewModel>,
       shades: null == shades
           ? _value.shades
           : shades // ignore: cast_nullable_to_non_nullable
@@ -543,6 +556,7 @@ class _$_JHAModel implements _JHAModel {
       final List<String> toolsList = const [],
       final List<String> ppeList = const [],
       final List<JHAIncidentModel> incidents = const [],
+      final List<JHACrewModel> crews = const [],
       this.shades = false,
       this.water = false,
       this.paperCups = false,
@@ -564,7 +578,8 @@ class _$_JHAModel implements _JHAModel {
       : _machineryList = machineryList,
         _toolsList = toolsList,
         _ppeList = ppeList,
-        _incidents = incidents;
+        _incidents = incidents,
+        _crews = crews;
 
   factory _$_JHAModel.fromJson(Map<String, dynamic> json) =>
       _$$_JHAModelFromJson(json);
@@ -641,6 +656,15 @@ class _$_JHAModel implements _JHAModel {
     return EqualUnmodifiableListView(_incidents);
   }
 
+  final List<JHACrewModel> _crews;
+  @override
+  @JsonKey()
+  List<JHACrewModel> get crews {
+    if (_crews is EqualUnmodifiableListView) return _crews;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_crews);
+  }
+
   @override
   @JsonKey()
   final bool shades;
@@ -698,7 +722,7 @@ class _$_JHAModel implements _JHAModel {
 
   @override
   String toString() {
-    return 'JHAModel(id: $id, company: $company, segment: $segment, workPlan: $workPlan, date: $date, dayOrNight: $dayOrNight, competentPerson: $competentPerson, supervisor: $supervisor, certifiedPerson: $certifiedPerson, certifiedFlagger: $certifiedFlagger, task: $task, isNight: $isNight, machineryList: $machineryList, toolsList: $toolsList, ppeList: $ppeList, incidents: $incidents, shades: $shades, water: $water, paperCups: $paperCups, trashes: $trashes, restrooms: $restrooms, extinguishers: $extinguishers, gfcis: $gfcis, workAreaProtection: $workAreaProtection, firstAidKit: $firstAidKit, craneLiftPlan: $craneLiftPlan, machinery: $machinery, toolsAndEquipment: $toolsAndEquipment, excavations: $excavations, scaffolds: $scaffolds, utility: $utility, proximity: $proximity, confinedSpace: $confinedSpace, hotWork: $hotWork)';
+    return 'JHAModel(id: $id, company: $company, segment: $segment, workPlan: $workPlan, date: $date, dayOrNight: $dayOrNight, competentPerson: $competentPerson, supervisor: $supervisor, certifiedPerson: $certifiedPerson, certifiedFlagger: $certifiedFlagger, task: $task, isNight: $isNight, machineryList: $machineryList, toolsList: $toolsList, ppeList: $ppeList, incidents: $incidents, crews: $crews, shades: $shades, water: $water, paperCups: $paperCups, trashes: $trashes, restrooms: $restrooms, extinguishers: $extinguishers, gfcis: $gfcis, workAreaProtection: $workAreaProtection, firstAidKit: $firstAidKit, craneLiftPlan: $craneLiftPlan, machinery: $machinery, toolsAndEquipment: $toolsAndEquipment, excavations: $excavations, scaffolds: $scaffolds, utility: $utility, proximity: $proximity, confinedSpace: $confinedSpace, hotWork: $hotWork)';
   }
 
   @override
@@ -731,6 +755,7 @@ class _$_JHAModel implements _JHAModel {
             const DeepCollectionEquality().equals(other._ppeList, _ppeList) &&
             const DeepCollectionEquality()
                 .equals(other._incidents, _incidents) &&
+            const DeepCollectionEquality().equals(other._crews, _crews) &&
             (identical(other.shades, shades) || other.shades == shades) &&
             (identical(other.water, water) || other.water == water) &&
             (identical(other.paperCups, paperCups) ||
@@ -783,6 +808,7 @@ class _$_JHAModel implements _JHAModel {
         const DeepCollectionEquality().hash(_toolsList),
         const DeepCollectionEquality().hash(_ppeList),
         const DeepCollectionEquality().hash(_incidents),
+        const DeepCollectionEquality().hash(_crews),
         shades,
         water,
         paperCups,
@@ -835,6 +861,7 @@ abstract class _JHAModel implements JHAModel {
       final List<String> toolsList,
       final List<String> ppeList,
       final List<JHAIncidentModel> incidents,
+      final List<JHACrewModel> crews,
       final bool shades,
       final bool water,
       final bool paperCups,
@@ -888,6 +915,8 @@ abstract class _JHAModel implements JHAModel {
   List<String> get ppeList;
   @override
   List<JHAIncidentModel> get incidents;
+  @override
+  List<JHACrewModel> get crews;
   @override
   bool get shades;
   @override

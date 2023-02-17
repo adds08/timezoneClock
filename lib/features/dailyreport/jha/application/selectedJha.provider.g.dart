@@ -29,7 +29,7 @@ class _SystemHash {
   }
 }
 
-String _$SelectedJHAHash() => r'8d87905f38727666865cc4288ac08299ab8b5fc2';
+String _$SelectedJHAHash() => r'd1a563263dfad408e848cc0516dbbcbdbe0e5198';
 
 /// See also [SelectedJHA].
 final selectedJHAProvider = NotifierProvider<SelectedJHA, JHAModel>(

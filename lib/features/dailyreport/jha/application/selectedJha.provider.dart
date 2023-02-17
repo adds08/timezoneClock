@@ -1,5 +1,6 @@
 import 'package:LSTime/features/dailyreport/jha/application/jha.provider.dart';
 import 'package:LSTime/features/dailyreport/jha/model/jha.model.dart';
+import 'package:LSTime/features/dailyreport/jha/model/jhacrew.model.dart';
 import 'package:LSTime/features/dailyreport/jha/model/jhaincident.model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -13,6 +14,38 @@ class SelectedJHA extends _$SelectedJHA {
   @override
   JHAModel build() {
     return JHAModel.init();
+  }
+
+// add crew function
+  void addCrew(JHACrewModel crew) {
+    List<JHACrewModel> crews = [...state.crews, crew];
+    JHAModel updatedJHA = state.copyWith(crews: crews);
+    ref.read(jHANotifierProvider.notifier).update(state.id, updatedJHA);
+    setState = updatedJHA;
+  }
+
+  // remove crew function
+  void removeCrew(int index) {
+    List<JHACrewModel> tempcrews = [...state.crews];
+    tempcrews.removeAt(index);
+    JHAModel updatedJHA = state.copyWith(crews: tempcrews);
+    ref.read(jHANotifierProvider.notifier).update(state.id, updatedJHA);
+    setState = updatedJHA;
+  }
+
+  // update crew function
+  void updateCrew(int index, JHACrewModel crew) {
+    List<JHACrewModel> newcrews = [];
+    for (int i = 0; i < state.crews.length; i++) {
+      if (i == index) {
+        newcrews.add(crew);
+        continue;
+      }
+      newcrews.add(state.crews[i]);
+    }
+    JHAModel updatedJHA = state.copyWith(crews: newcrews);
+    ref.read(jHANotifierProvider.notifier).update(state.id, updatedJHA);
+    setState = updatedJHA;
   }
 
   // add incident function
