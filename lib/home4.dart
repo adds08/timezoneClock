@@ -2,11 +2,9 @@ import 'package:LSTime/features/dailyreport/incident/incident.dart';
 import 'package:LSTime/features/dailyreport/incident/incident.provider.dart';
 import 'package:LSTime/features/dailyreport/incident/selected.incident.provider.dart';
 import 'package:LSTime/features/dailyreport/jha/presentation/jhaList.screen.dart';
-import 'package:LSTime/features/employeematrix/employeematrix.screen.dart';
+import 'package:LSTime/features/safetyhr/employeematrix/employeematrix.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'osha.dart';
 
 List<List<String>> incidentList = [];
 
